@@ -2,7 +2,8 @@
 About
 =====
 
-cosmics.py is a small and simple python module to detect and clean cosmic ray hits on images (numpy arrays or FITS),
+cosmics.py is a small and simple python module to detect and clean 
+cosmic ray hits on images (numpy arrays or FITS),
 using scipy, and based on Pieter van Dokkum's L.A.Cosmic algorithm.
 
 Original Version: Malte Tewes, January 2010
@@ -20,15 +21,15 @@ import pyfits
 
 
 # We define the laplacian kernel to be used
-laplkernel = np.array([[0.0, -1.0, 0.0], [-1.0, 4.0, -1.0], [0.0, -1.0, 0.0]])
+laplKernel = np.array([[0.0, -1.0, 0.0], [-1.0, 4.0, -1.0], [0.0, -1.0, 0.0]])
 # Other kernels :
-growkernel = np.ones((3, 3))
-dilstruct = np.ones((5, 5))    # dilation structure for some morphological operations
-dilstruct[0, 0] = 0
-dilstruct[0, 4] = 0
-dilstruct[4, 0] = 0
-dilstruct[4, 4] = 0
-# So this dilstruct looks like :
+growKernel = np.ones((3, 3))
+dilStruct = np.ones((5, 5))    # dilation structure for some morphological operations
+dilStruct[0, 0] = 0
+dilStruct[0, 4] = 0
+dilStruct[4, 0] = 0
+dilStruct[4, 4] = 0
+# So this dilStruct looks like :
 #    01110
 #    11111
 #    11111
@@ -109,8 +110,8 @@ class cosmicsimage:
         if verbose:
             print "Labeling mask pixels ..."
         # We morphologicaly dilate the mask to generously connect "sparse" cosmics :
-        #dilstruct = np.ones((5,5))
-        dilmask = ndimage.morphology.binary_dilation(self.mask, structure=dilstruct, iterations=1, mask=None, output=None, border_value=0, origin=0, brute_force=False)
+        #dilStruct = np.ones((5,5))
+        dilmask = ndimage.morphology.binary_dilation(self.mask, structure=dilStruct, iterations=1, mask=None, output=None, border_value=0, origin=0, brute_force=False)
         # origin = 0 means center
         (labels, n) = ndimage.measurements.label(dilmask)
         #print "Number of cosmic ray hits : %i" % n
@@ -139,9 +140,9 @@ class cosmicsimage:
         size = 3 or 5 decides how to dilate.
         """
         if size == 3:
-            dilmask = ndimage.morphology.binary_dilation(self.mask, structure=growkernel, iterations=1, mask=None, output=None, border_value=0, origin=0, brute_force=False)
+            dilmask = ndimage.morphology.binary_dilation(self.mask, structure=growKernel, iterations=1, mask=None, output=None, border_value=0, origin=0, brute_force=False)
         elif size == 5:
-            dilmask = ndimage.morphology.binary_dilation(self.mask, structure=dilstruct, iterations=1, mask=None, output=None, border_value=0, origin=0, brute_force=False)
+            dilmask = ndimage.morphology.binary_dilation(self.mask, structure=dilStruct, iterations=1, mask=None, output=None, border_value=0, origin=0, brute_force=False)
         else:
             dismask = self.mask.copy()
         
@@ -270,9 +271,9 @@ class cosmicsimage:
         # I haven't found a better solution then the double loop
         
         # We dilate the satpixels alone, to ensure connectivity in glitchy regions and to add a safety margin around them.
-        #dilstruct = np.array([[0,1,0], [1,1,1], [0,1,0]])
+        #dilStruct = np.array([[0,1,0], [1,1,1], [0,1,0]])
         
-        dilsatpixels = ndimage.morphology.binary_dilation(satpixels, structure=dilstruct, iterations=2, mask=None, output=None, border_value=0, origin=0, brute_force=False)
+        dilsatpixels = ndimage.morphology.binary_dilation(satpixels, structure=dilStruct, iterations=2, mask=None, output=None, border_value=0, origin=0, brute_force=False)
         # It turns out it's better to think large and do 2 iterations...
         
         
@@ -363,7 +364,7 @@ class cosmicsimage:
         
         # We subsample, convolve, clip negative values, and rebin to original size
         subsam = subsample(self.cleanarray)
-        conved = signal.convolve2d(subsam, laplkernel, mode="same", boundary="symm")
+        conved = signal.convolve2d(subsam, laplKernel, mode="same", boundary="symm")
         cliped = conved.clip(min=0.0)
         #cliped = np.abs(conved) # unfortunately this does not work to find holes as well ...
         lplus = rebin2x2(cliped)
@@ -439,7 +440,7 @@ class cosmicsimage:
             print "Finding neighboring pixels affected by cosmic rays ..."
             
         # We grow these cosmics a first time to determine the immediate neighborhod  :
-        growcosmics = np.cast['bool'](signal.convolve2d(np.cast['float32'](cosmics), growkernel, mode="same", boundary="symm"))
+        growcosmics = np.cast['bool'](signal.convolve2d(np.cast['float32'](cosmics), growKernel, mode="same", boundary="symm"))
         
         # From this grown set, we keep those that have sp > sigmalim
         # so obviously not requiring sp/f > objlim, otherwise it would be pointless
@@ -447,7 +448,7 @@ class cosmicsimage:
         
         # Now we repeat this procedure, but lower the detection limit to sigmalimlow :
             
-        finalsel = np.cast['bool'](signal.convolve2d(np.cast['float32'](growcosmics), growkernel, mode="same", boundary="symm"))
+        finalsel = np.cast['bool'](signal.convolve2d(np.cast['float32'](growcosmics), growKernel, mode="same", boundary="symm"))
         finalsel = np.logical_and(sp > self.sigcliplow, finalsel)
         
         	# Again, we have to kick out pixels on saturated stars :
@@ -504,7 +505,7 @@ class cosmicsimage:
         """
         """
         subsam = subsample(self.cleanarray)
-        conved = -signal.convolve2d(subsam, laplkernel, mode="same", boundary="symm")
+        conved = -signal.convolve2d(subsam, laplKernel, mode="same", boundary="symm")
         cliped = conved.clip(min=0.0)
         lplus = rebin2x2(conved)
         
