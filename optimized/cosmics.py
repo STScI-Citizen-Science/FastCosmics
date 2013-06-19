@@ -296,7 +296,7 @@ class cosmicsimage:
         if verbose == None:
             verbose = self.verbose
         if verbose:
-                print "Detecting saturated stars ..."
+            print "Detecting saturated stars ..."
         # DETECTION
         
         satpixels = self.rawarray > self.satlevel # the candidate pixels
@@ -309,7 +309,7 @@ class cosmicsimage:
         satstarscenters = np.logical_and(largestruct, satpixels)
         
         if verbose:
-                print "Building mask of saturated stars ..."
+            print "Building mask of saturated stars ..."
         
         # BUILDING THE MASK
         # The subtility is that we want to include all saturated pixels connected to these saturated stars...
@@ -327,7 +327,7 @@ class cosmicsimage:
         #tofits(dilsatlabels, "test.fits")
         
         if verbose:
-                print "We have %i saturated stars." % nsat
+            print "We have %i saturated stars." % nsat
         
         # The ouput, False for now :
         outmask = np.zeros(self.rawarray.shape)
@@ -342,7 +342,7 @@ class cosmicsimage:
         self.satstars = np.cast['bool'](outmask)
         
         if verbose:
-                print "Mask of saturated stars done"
+            print "Mask of saturated stars done"
         
     def getsatstars(self, verbose = None):
         """
@@ -446,7 +446,7 @@ class cosmicsimage:
          # At this stage we use the saturated stars to mask the candidates, if available :
         if self.satstars != None:
             if verbose:
-                 print "Masking saturated stars ..."
+                print "Masking saturated stars ..."
             candidates = np.logical_and(np.logical_not(self.satstars), candidates)
             nbcandidates = np.sum(candidates)
         
@@ -498,9 +498,9 @@ class cosmicsimage:
         
         	# Again, we have to kick out pixels on saturated stars :
         if self.satstars != None:
-             if verbose:
-                 print "Masking saturated stars ..."
-             finalsel = np.logical_and(np.logical_not(self.satstars), finalsel)
+            if verbose:
+                print "Masking saturated stars ..."
+            finalsel = np.logical_and(np.logical_not(self.satstars), finalsel)
              
         nbfinal = np.sum(finalsel)
         
