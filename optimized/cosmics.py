@@ -68,12 +68,12 @@ import pyfits
 # We define the laplacian kernel to be used
 laplkernel = np.array([[0.0, -1.0, 0.0], [-1.0, 4.0, -1.0], [0.0, -1.0, 0.0]])
 # Other kernels :
-growkernel = np.ones((3,3))
-dilstruct = np.ones((5,5))    # dilation structure for some morphological operations
-dilstruct[0,0] = 0
-dilstruct[0,4] = 0
-dilstruct[4,0] = 0
-dilstruct[4,4] = 0
+growkernel = np.ones((3, 3))
+dilstruct = np.ones((5, 5))    # dilation structure for some morphological operations
+dilstruct[0, 0] = 0
+dilstruct[0, 4] = 0
+dilstruct[4, 0] = 0
+dilstruct[4, 4] = 0
 # So this dilstruct looks like :
 #    01110
 #    11111
@@ -170,7 +170,7 @@ class cosmicsimage:
         centers = [[(tup[0].start + tup[0].stop)/2.0, (tup[1].start + tup[1].stop)/2.0] for tup in slicecouplelist]
         # We also want to know how many pixels where affected by each cosmic ray.
         # Why ? Dunno... it's fun and available in scipy :-)
-        sizes = ndimage.measurements.sum(self.mask.ravel(), labels.ravel(), np.arange(1,n+1,1))
+        sizes = ndimage.measurements.sum(self.mask.ravel(), labels.ravel(), np.arange(1, n+1, 1))
         retdictlist = [{"name":"%i" % size, "x":center[0], "y":center[1]} for (size, center) in zip(sizes, centers)]
         
         if verbose:
@@ -227,13 +227,13 @@ class cosmicsimage:
         # Now we want to have a 2 pixel frame of Inf padding around our image.
         w = self.cleanarray.shape[0]
         h = self.cleanarray.shape[1]
-        padarray = np.zeros((w+4,h+4))+np.Inf
-        padarray[2:w+2,2:h+2] = self.cleanarray.copy() # that copy is important, we need 2 independent arrays
+        padarray = np.zeros((w+4, h+4))+np.Inf
+        padarray[2:w+2, 2:h+2] = self.cleanarray.copy() # that copy is important, we need 2 independent arrays
         
         # The medians will be evaluated in this padarray, skipping the np.Inf.
         # Now in this copy called padarray, we also put the saturated stars to np.Inf, if available :
         if self.satstars != None:
-            padarray[2:w+2,2:h+2][self.satstars] = np.Inf
+            padarray[2:w+2, 2:h+2][self.satstars] = np.Inf
             # Viva python, I tested this one, it works...
         
         # A loop through every cosmic pixel :
@@ -332,7 +332,7 @@ class cosmicsimage:
         # The ouput, False for now :
         outmask = np.zeros(self.rawarray.shape)
         
-        for i in range(1,nsat+1): # we go through the islands of saturated pixels
+        for i in range(1, nsat+1): # we go through the islands of saturated pixels
             thisisland = dilsatlabels == i # gives us a boolean array
             # Does this intersect with satstarscenters ?
             overlap = np.logical_and(thisisland, satstarscenters)
@@ -697,7 +697,7 @@ def subsample(a): # this is more a generic function then a method ...
     """
     # much better :
     newshape = (2*a.shape[0], 2*a.shape[1])
-    slices = [slice(0,old, float(old)/new) for old,new in zip(a.shape,newshape) ]
+    slices = [slice(0, old, float(old)/new) for old, new in zip(a.shape, newshape) ]
     coordinates = np.mgrid[slices]
     indices = coordinates.astype('i')   #choose the biggest smaller integer index
     return a[tuple(indices)]

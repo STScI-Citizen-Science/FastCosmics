@@ -1,0 +1,248 @@
+************* Module cosmics
+C:  5,0: Line too long (184/80)
+C: 19,0: Line too long (87/80)
+C: 21,0: Line too long (88/80)
+C: 23,0: Line too long (147/80)
+C: 26,0: Line too long (115/80)
+C: 27,0: Line too long (81/80)
+C: 29,0: Line too long (101/80)
+C: 30,0: Line too long (86/80)
+C: 32,0: Line too long (122/80)
+C: 37,0: Line too long (107/80)
+C: 38,0: Line too long (108/80)
+C: 48,0: Line too long (85/80)
+C: 49,0: Line too long (97/80)
+C: 72,0: Line too long (85/80)
+C: 88,0: Line too long (147/80)
+C:113,0: Line too long (85/80)
+C:114,0: Line too long (91/80)
+C:115,0: Line too long (94/80)
+C:129,0: Line too long (89/80)
+C:136,0: Line too long (114/80)
+C:141,0: Line too long (90/80)
+C:144,0: Line too long (88/80)
+C:157,0: Line too long (84/80)
+C:159,0: Line too long (167/80)
+C:165,0: Line too long (101/80)
+C:166,0: Line too long (90/80)
+C:170,0: Line too long (115/80)
+C:171,0: Line too long (81/80)
+C:173,0: Line too long (97/80)
+C:174,0: Line too long (116/80)
+C:188,0: Line too long (172/80)
+C:190,0: Line too long (171/80)
+C:218,0: Line too long (97/80)
+C:231,0: Line too long (110/80)
+C:234,0: Line too long (101/80)
+C:243,0: Line too long (93/80)
+C:245,0: Line too long (96/80)
+C:255,0: Line too long (90/80)
+C:260,0: Line too long (81/80)
+C:304,0: Line too long (94/80)
+C:315,0: Line too long (109/80)
+C:318,0: Line too long (122/80)
+C:321,0: Line too long (172/80)
+C:335,0: Line too long (82/80)
+C:340,0: Line too long (92/80)
+C:355,0: Line too long (87/80)
+C:410,0: Line too long (82/80)
+C:412,0: Line too long (84/80)
+C:414,0: Line too long (93/80)
+C:421,0: Line too long (82/80)
+C:424,0: Line too long (94/80)
+C:446,0: Line too long (90/80)
+C:450,0: Line too long (82/80)
+C:454,0: Line too long (89/80)
+C:460,0: Line too long (82/80)
+C:463,0: Line too long (83/80)
+C:464,0: Line too long (82/80)
+C:465,0: Line too long (85/80)
+C:482,0: Line too long (89/80)
+C:487,0: Line too long (86/80)
+C:488,0: Line too long (127/80)
+C:491,0: Line too long (83/80)
+C:494,0: Line too long (86/80)
+C:496,0: Line too long (128/80)
+C:511,0: Line too long (112/80)
+C:525,0: Line too long (86/80)
+C:541,0: Line too long (82/80)
+C:553,0: Line too long (85/80)
+C:559,0: Line too long (83/80)
+C:561,0: Line too long (95/80)
+C:602,0: Line too long (83/80)
+C:604,0: Line too long (108/80)
+C:625,0: Line too long (84/80)
+C:644,0: Line too long (87/80)
+C:658,0: Line too long (87/80)
+C:700,0: Line too long (84/80)
+C:702,0: Line too long (81/80)
+C:721,0: Line too long (81/80)
+C:733,0: Line too long (84/80)
+C: 69,0: Invalid name "laplkernel" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 71,0: Invalid name "growkernel" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 72,0: Invalid name "dilstruct" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+R: 86,0:cosmicsimage: Too many instance attributes (13/7)
+C: 86,0:cosmicsimage: Invalid name "cosmicsimage" (should match [A-Z_][a-zA-Z0-9]+$)
+C: 86,0:cosmicsimage: Missing docstring
+R: 88,4:cosmicsimage.__init__: Too many arguments (10/5)
+C:161,17:cosmicsimage.labelmask: Invalid name "n" (should match [a-z_][a-z0-9_]{2,30}$)
+W:192,12:cosmicsimage.getdilatedmask: Unused variable 'dismask'
+C:228,8:cosmicsimage.clean: Invalid name "w" (should match [a-z_][a-z0-9_]{2,30}$)
+C:229,8:cosmicsimage.clean: Invalid name "h" (should match [a-z_][a-z0-9_]{2,30}$)
+C:241,12:cosmicsimage.clean: Invalid name "x" (should match [a-z_][a-z0-9_]{2,30}$)
+C:242,12:cosmicsimage.clean: Invalid name "y" (should match [a-z_][a-z0-9_]{2,30}$)
+W:288,-1:cosmicsimage.clean: String statement has no effect
+C:305,8:cosmicsimage.findsatstars: Invalid name "m5" (should match [a-z_][a-z0-9_]{2,30}$)
+C:360,4:cosmicsimage.getmask: Missing docstring
+R:385,4:cosmicsimage.lacosmiciteration: Too many local variables (23/15)
+C:421,8:cosmicsimage.lacosmiciteration: Invalid name "m5" (should match [a-z_][a-z0-9_]{2,30}$)
+C:430,8:cosmicsimage.lacosmiciteration: Invalid name "s" (should match [a-z_][a-z0-9_]{2,30}$)
+C:434,8:cosmicsimage.lacosmiciteration: Invalid name "sp" (should match [a-z_][a-z0-9_]{2,30}$)
+C:460,8:cosmicsimage.lacosmiciteration: Invalid name "m3" (should match [a-z_][a-z0-9_]{2,30}$)
+C:462,8:cosmicsimage.lacosmiciteration: Invalid name "f" (should match [a-z_][a-z0-9_]{2,30}$)
+C:467,8:cosmicsimage.lacosmiciteration: Invalid name "f" (should match [a-z_][a-z0-9_]{2,30}$)
+C:468,8:cosmicsimage.lacosmiciteration: Invalid name "f" (should match [a-z_][a-z0-9_]{2,30}$)
+R:385,4:cosmicsimage.lacosmiciteration: Too many branches (16/12)
+R:385,4:cosmicsimage.lacosmiciteration: Too many statements (60/50)
+W:532,8:cosmicsimage.findholes: Unnecessary pass statement
+W:550,-1:cosmicsimage.findholes: String statement has no effect
+W:570,-1:cosmicsimage.findholes: String statement has no effect
+W:583,-1:cosmicsimage.findholes: String statement has no effect
+C:679,0:subsample: Invalid name "a" (should match [a-z_][a-z0-9_]{2,30}$)
+C:679,14:subsample: Invalid name "a" (should match [a-z_][a-z0-9_]{2,30}$)
+W:697,-1:subsample: String statement has no effect
+C:708,0:rebin: Invalid name "a" (should match [a-z_][a-z0-9_]{2,30}$)
+C:708,10:rebin: Invalid name "a" (should match [a-z_][a-z0-9_]{2,30}$)
+C:717,4:rebin: Invalid name "lenShape" (should match [a-z_][a-z0-9_]{2,30}$)
+C:720,4:rebin: Operator not preceded by a space
+    evList = ['a.reshape('] + \
+                 ['newshape[%d],factor[%d],'%(i,i) for i in xrange(lenShape)] + \
+                                            ^
+                 [')'] + ['.sum(%d)'%(i+1) for i in xrange(lenShape)] + \
+                 ['/factor[%d]'%i for i in xrange(lenShape)]
+C:720,4:rebin: Invalid name "evList" (should match [a-z_][a-z0-9_]{2,30}$)
+W:718,4:rebin: Unused variable 'factor'
+C:728,0:rebin2x2: Invalid name "a" (should match [a-z_][a-z0-9_]{2,30}$)
+C:728,13:rebin2x2: Invalid name "a" (should match [a-z_][a-z0-9_]{2,30}$)
+W: 61,0: Unused import math
+
+
+Report
+======
+250 statements analysed.
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |1      |1          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |1      |1          |=          |0.00        |100.00   |
++---------+-------+-----------+-----------+------------+---------+
+|method   |14     |14         |=          |92.86       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |5      |5          |=          |100.00      |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |270    |39.76 |270      |=          |
++----------+-------+------+---------+-----------+
+|docstring |239    |35.20 |239      |=          |
++----------+-------+------+---------+-----------+
+|comment   |75     |11.05 |75       |=          |
++----------+-------+------+---------+-----------+
+|empty     |95     |13.99 |95       |=          |
++----------+-------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |107    |119      |-12.00     |
++-----------+-------+---------+-----------+
+|refactor   |5      |5        |=          |
++-----------+-------+---------+-----------+
+|warning    |9      |9        |=          |
++-----------+-------+---------+-----------+
+|error      |0      |0        |=          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------+------------+
+|message id |occurrences |
++===========+============+
+|C0301      |79          |
++-----------+------------+
+|C0103      |25          |
++-----------+------------+
+|W0105      |5           |
++-----------+------------+
+|W0612      |2           |
++-----------+------------+
+|C0111      |2           |
++-----------+------------+
+|W0611      |1           |
++-----------+------------+
+|W0107      |1           |
++-----------+------------+
+|R0915      |1           |
++-----------+------------+
+|R0914      |1           |
++-----------+------------+
+|R0913      |1           |
++-----------+------------+
+|R0912      |1           |
++-----------+------------+
+|R0902      |1           |
++-----------+------------+
+|C0322      |1           |
++-----------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at 5.16/10 (previous run: 4.68/10)
+
+External dependencies
+---------------------
+::
+
+    numpy (cosmics)
+    pyfits (cosmics)
+    scipy 
+      \-ndimage (cosmics)
+      \-signal (cosmics)
+
+
+
