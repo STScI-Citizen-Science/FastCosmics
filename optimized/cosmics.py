@@ -2,56 +2,10 @@
 About
 =====
 
-cosmics.py is a small and simple python module to detect and clean cosmic ray hits on images (numpy arrays or FITS), using scipy, and based on Pieter van Dokkum's L.A.Cosmic algorithm.
+cosmics.py is a small and simple python module to detect and clean cosmic ray hits on images (numpy arrays or FITS),
+using scipy, and based on Pieter van Dokkum's L.A.Cosmic algorithm.
 
-L.A.Cosmic = Laplacian cosmic ray detection
-
-U{http://www.astro.yale.edu/dokkum/lacosmic/}
-
-(article : U{http://arxiv.org/abs/astro-ph/0108003})
-
-
-Additional features
-===================
-
-I pimped this a bit to suit my needs :
-
-    - Automatic recognition of saturated stars, including their full saturation trails.
-    This avoids that such stars are treated as big cosmics.
-    Indeed saturated stars tend to get even uglier when you try to clean them. Plus they
-    keep L.A.Cosmic iterations going on forever.
-    This feature is mainly for pretty-image production. It is optional, requires one more parameter (a CCD saturation level in ADU), and uses some 
-    nicely robust morphology operations and object extraction.
-    
-    - Scipy image analysis allows to "label" the actual cosmic ray hits (i.e. group the pixels into local islands).
-    A bit special, but I use this in the scope of visualizing a PSF construction.
-
-But otherwise the core is really a 1-to-1 implementation of L.A.Cosmic, and uses the same parameters.
-Only the conventions on how filters are applied at the image edges might be different.
-
-No surprise, this python module is much faster then the IRAF implementation, as it does not read/write every step to disk.
-
-Usage
-=====
-
-Everything is in the file cosmics.py, all you need to do is to import it. You need pyfits, numpy and scipy.
-See the demo scripts for example usages (the second demo uses f2n.py to make pngs, and thus also needs PIL).
-
-Your image should have clean borders, cut away prescan/overscan etc.
-
-
-
-Todo
-====
-Ideas for future improvements :
-
-    - Add something reliable to detect negative glitches (dust on CCD or small traps)
-    - Top level functions to simply run all this on either numpy arrays or directly on FITS files
-    - Reduce memory usage ... easy
-    - Switch from signal to ndimage, homogenize mirror boundaries
-
-
-Malte Tewes, January 2010
+Original Version: Malte Tewes, January 2010
 """
 
 __version__ = '0.4'
