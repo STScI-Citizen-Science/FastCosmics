@@ -1,6 +1,7 @@
 """
 This program takes two fits files as arguments and checks for 
-differences between them. 
+differences between them. Uses the astropy module to achieve this.
+Writes the output to a text file. 
 """
 import sys
 import subprocess
@@ -33,7 +34,8 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-args=parse_args()
+args=parse_args() #parse input arguments
+#check if inputs are of correct format
 if args.file1.endswith(".fits") & args.file2.endswith(".fits"):
 	file1=args.file1  
 	file2=args.file2
@@ -41,12 +43,18 @@ else:
 	print "Unrecognized argument(s). Requires two fits files."
 	sys.exit(0)
 
+#output filename created based on input filenames
+diffFileName="diff"+file1[:-5]+file2[:-5]+".txt"
 
+#open fits files for comparison
 fits1=fits.open(file1)
 fits2=fits.open(file2)
-data1=fits1[0].data
-data2=fits2[0].data
-print data1
-print data2
+#use astropy's fits sub-module to find and report differences
+fitsDiff=fits.FITSDiff(fits1,fits2,ignore_keywords=['*'])
+diffFile=open(diffFileName,'w') #open output file
+fitsDiff.report(diffFile,0) #write the report	
+#close all open files
+diffFile.close()			
 fits1.close()	
+fits2.close()
 
