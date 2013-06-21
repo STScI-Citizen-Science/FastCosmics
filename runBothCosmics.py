@@ -26,6 +26,7 @@ def parse_args():
         description = 'Run both versions of comsics.py module on a FITS file')
     parser.add_argument(
         '-file',
+        '-f',
         required = True,
         help = 'FITS file input to be used for processing')
     args = parser.parse_args()
