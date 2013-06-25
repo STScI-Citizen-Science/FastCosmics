@@ -324,7 +324,7 @@ class cosmicsimage:
         # The ouput, False for now :
         outmask = np.zeros(self.rawarray.shape) 
         outmask = np.logical_and(outmask,satstarscenters)
-        outmask = np.where(outmask>0,np.logical_or(outmask,dilsatlabels))
+        outmask = np.where(outmask>0,np.logical_or(outmask,dilsatlabels),np.logical_and(outmask,dilsatlabels   ))
         # for i in range(1, nsat+1): # we go through the islands of saturated pixels
         #     thisisland = dilsatlabels == i # gives us a boolean array
         #     # Does this intersect with satstarscenters ?

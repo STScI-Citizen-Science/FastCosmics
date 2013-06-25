@@ -338,7 +338,9 @@ class cosmicsimage:
 			overlap = np.logical_and(thisisland, satstarscenters)
 			if np.sum(overlap) > 0:
 				outmask = np.logical_or(outmask, thisisland) # we add thisisland to the mask
-			
+		print "Test1: "
+		print outmask
+		print "ends"	
 		self.satstars = np.cast['bool'](outmask)
 		
 		if verbose:

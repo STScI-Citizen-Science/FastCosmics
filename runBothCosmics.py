@@ -16,7 +16,7 @@ sys.path.append("original") # The original cosmics module directory
 import cosmics as origCosmics
 
 sys.path.append("optimized") # The optimized cosmics module directory
-import cosmics as optCosmics
+import cosmic as optCosmics
 
 def parse_args():
     '''
@@ -57,7 +57,7 @@ def origRemoval(fitsFile):
 	# (c.mask is a boolean numpy array, that gets converted here to an integer array)
 
 def optRemoval(fitsFile):
-	"""
+	"""	
 	Runs the optimized cosmics.py script on the input FITS file.
 	Outputs: optClean.fits, optMask.Fits
 	"""
@@ -72,7 +72,7 @@ def optRemoval(fitsFile):
 
 	# Run the full artillery :
 	c.run(maxiter = 4)
-
+					
 	# Write the cleaned image into a new FITS file, conserving the original header :
 	optCosmics.tofits("optClean.fits", c.cleanarray, header)
 
